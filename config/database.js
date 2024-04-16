@@ -4,12 +4,12 @@ require('dotenv').config();
 // Creating the connection
 try{
     const sequelize = new Sequelize(
-        process.env.DATABASE_NAME || 'exam_system',
-        process.env.DATABASE_USERNAME || 'root',
-        process.env.DATABASE_PASSWORD || '',
+        process.env.DATABASE_NAME,
+        process.env.DATABASE_USERNAME,
+        process.env.DATABASE_PASSWORD,
         {
             host: process.env.DATABASE_HOST,
-            dialect: process.env.DATABASE_DRIVER || 'mysql'
+            dialect: process.env.DATABASE_DRIVER
         }
     );
 
