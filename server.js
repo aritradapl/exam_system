@@ -27,5 +27,5 @@ app.use('/api/admin',adminRoutes);
 // server
 app.listen(port, () => {
     // console.log('Server is running on port http://localhost:' + port);
-    console.log('Server is running on' + https://exam-system-jaii.onrender.com);
+    console.log('Server is running on https://exam-system-jaii.onrender.com');
 });
