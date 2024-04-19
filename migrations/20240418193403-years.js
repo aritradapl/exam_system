@@ -10,35 +10,15 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.createTable('questions', {
+    await queryInterface.createTable('years', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      year_id: {
+      year: {
         type: Sequelize.INTEGER,
         allowNull: false
-      },
-      exam_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      section_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      question_type_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      question: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      question_status: {
-        type: Sequelize.TINYINT,
-        defaultValue: 1
       },
       createdAt: {
         allowNull: false,
@@ -46,10 +26,6 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      },
-      deletedAt: {
-        allowNull: true,
         type: Sequelize.DATE
       }
     });
@@ -62,6 +38,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('questions');
+
+    await queryInterface.dropTable('years');
   }
 };

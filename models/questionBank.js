@@ -14,6 +14,14 @@ const questionBank = sequelize.define('questions',{
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        section_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        question_type_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         question: {
             type: DataTypes.STRING,
             allowNull: false

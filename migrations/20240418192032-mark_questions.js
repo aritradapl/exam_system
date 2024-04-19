@@ -9,14 +9,13 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-
-    await queryInterface.createTable('questions', {
+    await queryInterface.createTable('mark_questions', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      year_id: {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
@@ -24,21 +23,19 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      section_id: {
+      question_id: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      question_type_id: {
+      year_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      question: {
-        type: Sequelize.STRING,
         allowNull: false
       },
-      question_status: {
+      status: {
         type: Sequelize.TINYINT,
-        defaultValue: 1
+        allowNull: true,
+        defaultValue: 0,
+        comment: '0 - not visited, 1 - attempted , 2 - not attempted, 3 - for review,4 - attempted and for review'
       },
       createdAt: {
         allowNull: false,
@@ -46,10 +43,6 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      },
-      deletedAt: {
-        allowNull: true,
         type: Sequelize.DATE
       }
     });
@@ -62,6 +55,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('questions');
+
+    await queryInterface.dropTable('mark_questions');
   }
 };
