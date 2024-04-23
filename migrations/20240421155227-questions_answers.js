@@ -9,13 +9,33 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('question_sections', {
+    await queryInterface.createTable('questions_answers', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      section_name: {
+      question_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      option_one: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      option_two: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      option_three: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      option_four: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      correct_answer: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -37,6 +57,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('question_sections');
+
+    await queryInterface.dropTable('questions_answers');
   }
 };

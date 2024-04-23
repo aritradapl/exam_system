@@ -9,36 +9,20 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-
-    await queryInterface.createTable('question_answers', {
+    await queryInterface.createTable('assigned_exams_users', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      question_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+      exam_id: {
+        type: Sequelize.INTEGER
       },
-      option_one: {
-        type: Sequelize.STRING,
-        allowNull: false
+      user_id: {
+        type: Sequelize.INTEGER
       },
-      option_two: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      option_three: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      option_four: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      correct_answer: {
-        type: Sequelize.TEXT,
-        allowNull: false
+      year_id: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -47,11 +31,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      deletedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
-      }
+      } 
     });
   },
 
@@ -62,6 +42,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('question_answers');
+
+    await queryInterface.dropTable('assigned_exams_users');
   }
 };
