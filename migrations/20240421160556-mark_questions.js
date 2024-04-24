@@ -9,36 +9,27 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-
-    await queryInterface.createTable('questions', {
+    await queryInterface.createTable('mark_questions', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      year_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      user_id: {
+        type: Sequelize.INTEGER
       },
       exam_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.INTEGER
       },
-      section_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+      question_id: {
+        type: Sequelize.INTEGER
       },
-      question_type_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+      year_id: {
+        type: Sequelize.INTEGER
       },
-      question: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      question_status: {
+      status: {
         type: Sequelize.TINYINT,
-        defaultValue: 1
+        comment:"0=>Not Visited, 1=>Answered, 2=>Not Answered, 3=>Marked"
       },
       createdAt: {
         allowNull: false,
@@ -47,14 +38,9 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      deletedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
       }
     });
   },
-
   async down (queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
@@ -62,6 +48,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('questions');
+
+    await queryInterface.dropTable('mark_questions');
   }
 };
