@@ -1,10 +1,10 @@
-// models/year.js
+// models/examDetails.js
 "use strict";
 
 const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
 
-const examDetails = sequelize.define('years',{
+const examDetails = sequelize.define('exam_details',{
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -45,7 +45,7 @@ const examDetails = sequelize.define('years',{
     },
         {
             timestamps: true,
-            paranoid: true,
+            paranoid: false,
         }
     );
     sequelize.sync({
