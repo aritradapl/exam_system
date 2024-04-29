@@ -1,16 +1,16 @@
-// models/year.js
+// models/institution.js
 "use strict";
 
 const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
 
-const institution = sequelize.define('years',{
+const institution = sequelize.define('institutions',{
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        exam_name: {
+        institution_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -21,11 +21,11 @@ const institution = sequelize.define('years',{
         updatedAt: {
             allowNull: false,
             type: DataTypes.DATE
-        }
+        },
     },
         {
             timestamps: true,
-            paranoid: true,
+            paranoid: false,
         }
     );
     sequelize.sync({
