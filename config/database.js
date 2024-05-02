@@ -28,7 +28,7 @@ catch(error){
     console.log(error);
 }
 
-// For Server Railway Database
+// // For Server Railway Database
 
 // const { Sequelize } = require('sequelize');
 // require('dotenv').config();

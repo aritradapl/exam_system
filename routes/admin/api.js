@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { handleFileUpload } = require('../../helpers/fileUploadHelper');
 const Auth = require('../../controllers/admin/auth/AuthController');
 const verifyToken = require('../../middleware/admin/authMiddleware');
 const Dashboard = require('../../controllers/admin/DashboardController')
@@ -15,9 +14,9 @@ router.use(verifyToken); // Middleware to verify token
 // Dashboard routes
 router.get('/dashboard', Dashboard.dashboard);
 // User routes
-router.post('/add-user', handleFileUpload.single('image'), User.addUser);
+router.post('/add-user', User.addUser);
 router.get('/users', User.getUsers);
-router.post('/update-user/:id', handleFileUpload.single('image'), User.updateUser);
+router.post('/update-user/:id', User.updateUser);
 // Institution routes
 router.post('/add-institution', Institution.addInstitution);
 router.get('/boards', Institution.getInstitutions);
