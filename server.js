@@ -2,7 +2,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const cors = require('cors');
+
+// dotenv
 dotenv.config();
+
+// cors
+app.use(cors());
 
 // routes
 const adminRoutes = require('./routes/admin/api');
