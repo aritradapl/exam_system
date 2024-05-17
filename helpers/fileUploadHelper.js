@@ -1,22 +1,25 @@
 const multer = require("multer");
-const path = require('path')
+const path = require('path');
+const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
-const uniqueId = uuidv4();
 
+const uniqueId = uuidv4();
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, './public/uploads')
+        const uploadPath = './public/uploads';
+        // Create the directory if it doesn't exist
+        fs.mkdirSync(uploadPath, { recursive: true });
+        callback(null, uploadPath);
     },
     filename: (req, file, callback) => {
         const extension = path.extname(file.originalname);
-        const uniqueNameById = uniqueId;
-        const uniqueFilename = `${uniqueNameById}${extension}`;
+        const uniqueFilename = `${uniqueId}${extension}`;
         callback(null, uniqueFilename);
-      }
+    }
 });
- 
-const maxSize = 3 * 1000 * 1000; // now allowing user uploads up to 3MB;
+
+const maxSize = 3 * 1000 * 1000; // 3MB
 
 const handleFileUpload = multer({
     storage,
@@ -28,6 +31,7 @@ const handleFileUpload = multer({
             return callback(new Error('only jpg, jpeg, png are allowed'))
         }
     },
-    limits:  { fileSize: maxSize } // maxSize
-})
-module.exports = { handleFileUpload }
+    limits: { fileSize: maxSize }
+}).single('image');
+
+module.exports = handleFileUpload;

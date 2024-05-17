@@ -8,7 +8,7 @@ function verifyToken(req, res, next) {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             let role = decoded.user.role;
-            console.log(role);
+            // console.log(role);
             if(role !== 'admin'){
                 return res.status(401).json({ error: 'Access denied' });
             }else{
