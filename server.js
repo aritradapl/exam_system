@@ -16,7 +16,10 @@ const userRoutes = require('./routes/user/api');
 
 const port = process.env.PORT || 3000;
 
+// For parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+// For parsing application/json
+app.use(express.json());
 
 // database connect
 require('./config/database');
