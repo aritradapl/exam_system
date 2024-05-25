@@ -21,9 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // For parsing application/json
 app.use(express.json());
 
-// database connect
-require('./config/database');
-
 //For Testing
 app.get('/', (req, res) => {
     res.send('Welcome');
