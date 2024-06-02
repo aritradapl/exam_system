@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
@@ -17,7 +16,7 @@ const userRoutes = require('./routes/user/api');
 const port = process.env.PORT || 3000;
 
 // For parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // For parsing application/json
 app.use(express.json());
 
